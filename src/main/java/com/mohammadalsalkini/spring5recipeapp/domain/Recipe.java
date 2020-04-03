@@ -1,6 +1,7 @@
 package com.mohammadalsalkini.spring5recipeapp.domain;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * @author Mohammad Alsalkini
@@ -25,6 +26,8 @@ public class Recipe {
 
     //todo add
     //private Difficulty difficulty;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+    private Set<Ingredient> ingredients;
 
     @Lob
     private Byte[] image;
