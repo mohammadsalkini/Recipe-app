@@ -1,22 +1,17 @@
 package com.mohammadalsalkini.spring5recipeapp.controller;
 
-import com.mohammadalsalkini.spring5recipeapp.domain.Category;
-import com.mohammadalsalkini.spring5recipeapp.domain.UnitOfMeasure;
-import com.mohammadalsalkini.spring5recipeapp.repositories.CategoryRepository;
-import com.mohammadalsalkini.spring5recipeapp.repositories.UnitOfMeasureRepository;
 import com.mohammadalsalkini.spring5recipeapp.services.RecipeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.Optional;
 
 /**
  * @author Mohammad Alsalkini
  * @project recipe-app
  * @created 03.04.2020 - 18:03
  */
-
+@Slf4j
 @Controller
 public class IndexController {
 
@@ -28,7 +23,7 @@ public class IndexController {
 
     @RequestMapping({"", "/", "/index"})
     public String getIndex(Model model) {
-
+        log.debug("Getting Index page");
         model.addAttribute("recipes", recipeService.getAllRecipes());
 
         return "index";
