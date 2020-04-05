@@ -1,5 +1,6 @@
 package com.mohammadalsalkini.spring5recipeapp.services;
 
+import com.mohammadalsalkini.spring5recipeapp.commands.RecipeCommand;
 import com.mohammadalsalkini.spring5recipeapp.domain.Recipe;
 
 import java.util.Set;
@@ -12,4 +13,12 @@ import java.util.Set;
 public interface RecipeService {
 
     Set<Recipe> getAllRecipes();
+
+    public Recipe findById(Long id);
+
+    RecipeCommand findCommandById(Long id);
+
+    RecipeCommand saveRecipeCommand(RecipeCommand command);
+
+    public void deleteById(Long id);
 }
