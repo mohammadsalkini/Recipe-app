@@ -11,4 +11,6 @@ import com.mohammadalsalkini.spring5recipeapp.domain.Ingredient;
 public interface IngredientService {
 
     IngredientCommand findByRecipeIdAndIngredientId(Long recipeId, Long IngredientId);
+
+    IngredientCommand saveIngredientCommand(IngredientCommand command);
 }
