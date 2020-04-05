@@ -10,7 +10,8 @@ import javax.persistence.*;
  * @created 03.04.2020 - 22:33
  */
 
-@Data
+@Getter
+@Setter
 @Entity
 public class UnitOfMeasure {
 
@@ -18,5 +19,4 @@ public class UnitOfMeasure {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String description;
-
 }

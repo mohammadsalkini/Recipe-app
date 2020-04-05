@@ -2,6 +2,8 @@ package com.mohammadalsalkini.spring5recipeapp.domain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -11,7 +13,8 @@ import java.math.BigDecimal;
  * @project Recipe-app
  * @created 03.04.2020 - 22:26
  */
-@Data
+@Getter
+@Setter
 @EqualsAndHashCode(exclude = {"recipe"})
 @Entity
 public class Ingredient {
@@ -31,18 +34,17 @@ public class Ingredient {
     public Ingredient() {
     }
 
-    public Ingredient(String description, BigDecimal amount, UnitOfMeasure unitOfMeasure) {
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom) {
         this.description = description;
         this.amount = amount;
-        this.uom = unitOfMeasure;
+        this.uom = uom;
     }
 
-
-    public Ingredient(String description, BigDecimal amount, UnitOfMeasure unitOfMeasure, Recipe recipe) {
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom, Recipe recipe) {
         this.description = description;
         this.amount = amount;
-        this.uom = unitOfMeasure;
+        this.uom = uom;
         this.recipe = recipe;
-
     }
+
 }

@@ -1,6 +1,8 @@
 package com.mohammadalsalkini.spring5recipeapp.domain;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -11,13 +13,15 @@ import java.util.Set;
  * @project recipe-app
  * @created 03.04.2020 - 21:35
  */
-@Data
+@Getter
+@Setter
 @Entity
 public class Recipe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String description;
     private Integer prepTime;
     private Integer cookTime;
@@ -34,18 +38,17 @@ public class Recipe {
     @Lob
     private Byte[] image;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Notes notes;
-
     @Enumerated(value = EnumType.STRING)
     private Difficulty difficulty;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Notes notes;
 
     @ManyToMany
     @JoinTable(name = "recipe_category",
             joinColumns = @JoinColumn(name = "recipe_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id"))
-    Set<Category> categories = new HashSet<>();
-
+    private Set<Category> categories = new HashSet<>();
 
     public void setNotes(Notes notes) {
         if (notes != null) {
