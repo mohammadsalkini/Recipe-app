@@ -1,6 +1,6 @@
-package com.mohammadalsalkini.spring5recipeapp.domain;
+package com.mohammadalsalkini.spring5recipeapp.repositories;
 
-import com.mohammadalsalkini.spring5recipeapp.repositories.UnitOfMeasureRepository;
+import com.mohammadalsalkini.spring5recipeapp.domain.UnitOfMeasure;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,16 +10,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Optional;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-/**
- * @author Mohammad Alsalkini
- * @project Recipe-app
- * @created 04.04.2020 - 16:53
- */
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class UnitOfMeasureTest {
+public class UnitOfMeasureRepositoryIT {
 
     @Autowired
     UnitOfMeasureRepository unitOfMeasureRepository;
